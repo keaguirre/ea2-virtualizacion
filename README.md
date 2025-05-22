@@ -33,6 +33,11 @@ Este proyecto proporciona un contenedor Docker basado en Ubuntu 25.10 que instal
 
 ## Mantenimiento
 
+Para eliminar la imagen:
+```sh
+docker rmi nagios-ea2
+```
+
 Para detener el contenedor:
 ```sh
 docker stop nagios
