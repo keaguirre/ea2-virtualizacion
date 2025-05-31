@@ -1,0 +1,2 @@
+uri_img         = ""
+ecs_service_name = "nagios-servicio-ea2"
