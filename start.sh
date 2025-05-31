@@ -7,6 +7,11 @@ usermod -a -G nagcmd www-data
 chgrp -R nagcmd /usr/local/nagios/var
 chmod -R g+rw /usr/local/nagios/var
 
+# Crear la estructura necesaria si no existe (requerido por Nagios)
+mkdir -p /usr/local/nagios/var/spool/checkresults
+chown -R nagios:nagios /usr/local/nagios/var
+chmod -R 775 /usr/local/nagios/var
+
 # Habilitar módulos necesarios por si falta algo
 a2enmod cgi rewrite
 
