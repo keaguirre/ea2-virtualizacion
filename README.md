@@ -21,15 +21,41 @@ Este proyecto proporciona un contenedor Docker basado en Ubuntu 25.10 que instal
    ```
 
 3. **Acceder a Nagios:**
-   - Abre tu navegador en `http://localhost:8080`
+   - Abre tu navegador en `http://localhost:80/nagios`
    - Usuario: `nagiosadmin`
    - Contraseña: `nagiosadmin`
+
+## Replicación de la infraestructura con Terraform
+Requiere antes haber creado un repositorio en AWS ECR, haber subido la imagen Docker y agregar la uri de la imagen en el archivo `terraform.tfvars`.
+
+### Para replicar la infraestructura definida en el archivo main.tf, puedes utilizar el siguiente comando de Terraform:
+
+1. Inicializa Terraform en el directorio del proyecto:
+   ```sh
+   terraform init
+   ```
+2. Realiza un plan para ver los cambios que se aplicarán:
+   ```sh
+   terraform plan
+   ```
+3. Aplica los cambios para crear la infraestructura:
+   ```sh
+   terraform apply
+   ```
+4. Confirma la creación de los recursos cuando se te solicite.
+5. Una vez completado, podrás acceder a Nagios a través de la URL del DNS proporcionada por el Application Load Balancer (ALB) creado por Terraform.
+
+6. **Destruir la infraestructura** (opcional):
+   Si deseas eliminar todos los recursos creados por Terraform, puedes ejecutar:
+   ```sh
+   terraform destroy
+   ```
 
 ## Notas
 
 - El contenedor expone el puerto 80.
 - El usuario y grupo `nagios` y `nagcmd` son creados para la correcta ejecución de Nagios.
-- El script [`start.sh`](start.sh) asegura los permisos y el correcto arranque de los servicios.
+- El script [`start.sh`](start.sh) asegura los permisos, la creacion de directorios necesarios y el correcto arranque de los servicios.
 
 ## Mantenimiento
 
@@ -37,7 +63,6 @@ Para eliminar la imagen:
 ```sh
 docker rmi nagios-ea2
 ```
-
 Para detener el contenedor:
 ```sh
 docker stop nagios
@@ -62,11 +87,11 @@ Esta evaluación tiene como objetivo medir tu capacidad para crear imágenes Doc
    -	[x] Crea un archivo README.md en el repositorio que explique detalladamente los pasos para construir la imagen y ejecutar el contenedor.
 
 2. Despliegue en AWS ECS:
-   -	[ ] Sube la imagen Docker creada a un repositorio de Elastic Container Registry (ECR).
-   -	[ ] Crea un sistema de archivos EFS y configúralo para que sea accesible desde ECS.
-   -	[ ] Define una tarea en ECS que utilice la imagen de Nagios del ECR.
-   -	[ ] Configura el montaje del EFS en el directorio principal de Nagios en cada contenedor.
-   -	[ ] Crea un servicio ECS con 3 tareas deseadas.
-   -	[ ] Configura un Application Load Balancer (ALB) para distribuir el tráfico entre las tareas.
-   -	[ ] Verifica que Nagios sea accesible a través de la URL del ALB.
-   -	[ ] Confirma que los datos de Nagios se almacenan persistentemente en el EFS.
+   -	[x] Sube la imagen Docker creada a un repositorio de Elastic Container Registry (ECR).
+   -	[x] Crea un sistema de archivos EFS y configúralo para que sea accesible desde ECS.
+   -	[x] Define una tarea en ECS que utilice la imagen de Nagios del ECR.
+   -	[x] Configura el montaje del EFS en el directorio principal de Nagios en cada contenedor.
+   -	[x] Crea un servicio ECS con 3 tareas deseadas.
+   -	[x] Configura un Application Load Balancer (ALB) para distribuir el tráfico entre las tareas.
+   -	[x] Verifica que Nagios sea accesible a través de la URL del ALB.
+   -	[x] Confirma que los datos de Nagios se almacenan persistentemente en el EFS.
