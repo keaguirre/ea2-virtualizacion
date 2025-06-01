@@ -1,12 +1,14 @@
 # Contenedor Docker para Nagios Core
 
-Este proyecto proporciona un contenedor Docker basado en Ubuntu 25.10 que instala y configura Nagios Core junto con los plugins oficiales y Apache2 para la interfaz web.
+Este proyecto proporciona un contenedor Docker basado en `php:8.4.8RC1-apache-bullseye` que instala y configura `Nagios Core en la version 4.5.9` junto con los `plugins oficiales en su versión 2.4.9`.
 
 ## Estructura del proyecto
 
 - **Dockerfile**: Define la imagen, instala dependencias, compila Nagios y plugins, y configura Apache.
 - **start.sh**: Script de inicio que ajusta permisos, habilita módulos de Apache, valida la configuración de Nagios y lanza los servicios.
-- **readme.md**: Este archivo de documentación.
+- **README.md**: Este archivo de documentación.
+- **main.tf**: Archivo principal de configuración de Terraform para desplegar la infraestructura en AWS.
+- **terraform.tfvars.example**: Archivo de ejemplo para definir variables requeridas por Terraform (como la URI de la imagen Docker y el nombre del servicio ECS).
 
 ## Uso
 
