@@ -80,20 +80,20 @@ Esta evaluación tiene como objetivo medir tu capacidad para crear imágenes Doc
 ## Lo que debes realizar:
 
 1. Creación de la Imagen Docker:
-   -	[x] Redacta un archivo Dockerfile que construya una imagen Docker con Nagios Core.
-   -	[x] La imagen debe incluir todas las dependencias necesarias para que Nagios funcione correctamente.
-   -	[x] Configura Nagios para que inicie automáticamente al arrancar el contenedor.
-   -	[x] Considera exponer el puerto 80 para acceder a la interfaz web de Nagios.
-   -	[x] Construye la imagen y verifica que Nagios sea accesible localmente.
-   -	[x] Sube el código del Dockerfile y otros archivos que requieras para construir la imagen a un repositorio GitHub.
-   -	[x] Crea un archivo README.md en el repositorio que explique detalladamente los pasos para construir la imagen y ejecutar el contenedor.
+   -	Redacta un archivo Dockerfile que construya una imagen Docker con Nagios Core.
+   -	La imagen debe incluir todas las dependencias necesarias para que Nagios funcione correctamente.
+   -	Configura Nagios para que inicie automáticamente al arrancar el contenedor.
+   -	Considera exponer el puerto 80 para acceder a la interfaz web de Nagios.
+   -	Construye la imagen y verifica que Nagios sea accesible localmente.
+   -	Sube el código del Dockerfile y otros archivos que requieras para construir la imagen a un repositorio GitHub.
+   -	Crea un archivo README.md en el repositorio que explique detalladamente los pasos para construir la imagen y ejecutar el contenedor.
 
 2. Despliegue en AWS ECS:
-   -	[x] Sube la imagen Docker creada a un repositorio de Elastic Container Registry (ECR).
-   -	[x] Crea un sistema de archivos EFS y configúralo para que sea accesible desde ECS.
-   -	[x] Define una tarea en ECS que utilice la imagen de Nagios del ECR.
-   -	[x] Configura el montaje del EFS en el directorio principal de Nagios en cada contenedor.
-   -	[x] Crea un servicio ECS con 3 tareas deseadas.
-   -	[x] Configura un Application Load Balancer (ALB) para distribuir el tráfico entre las tareas.
-   -	[x] Verifica que Nagios sea accesible a través de la URL del ALB.
-   -	[x] Confirma que los datos de Nagios se almacenan persistentemente en el EFS.
+   -	Sube la imagen Docker creada a un repositorio de Elastic Container Registry (ECR).
+   -	Crea un sistema de archivos EFS y configúralo para que sea accesible desde ECS.
+   -	Define una tarea en ECS que utilice la imagen de Nagios del ECR.
+   -	Configura el montaje del EFS en el directorio principal de Nagios en cada contenedor.
+   -	Crea un servicio ECS con 3 tareas deseadas.
+   -	Configura un Application Load Balancer (ALB) para distribuir el tráfico entre las tareas.
+   -	Verifica que Nagios sea accesible a través de la URL del ALB.
+los datos de Nagios se almacenan persistentemente en el EFS.
