@@ -27,7 +27,7 @@ Este proyecto proporciona un contenedor Docker basado en `php:8.4.8RC1-apache-bu
    - Usuario: `nagiosadmin`
    - Contraseña: `nagiosadmin`
 ## Arquitectura
-![architecture-diagram](diagrams/Architecture.png)
+![architecture-diagram](diagrams/architecture.png)
 
 ## Replicación de la infraestructura con Terraform
 Requiere antes haber creado un repositorio en AWS ECR, haber subido la imagen Docker y agregar la uri de la imagen en el archivo `terraform.tfvars`.
